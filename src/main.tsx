@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage.tsx";
 import SignupPage from "./pages/Signup.tsx";
 import DashbordLayout from "./layouts/DashbordLayout.tsx";
 import BooksPages from "./pages/BooksPages.tsx";
+import AuthLayot from "./layouts/AuthLayout.tsx";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
@@ -16,8 +17,10 @@ createRoot(document.getElementById("root")!).render(
           <Route path="home" element={<HomePage />} />
           <Route path="books" element={<BooksPages />} />
         </Route>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/auth" element={<AuthLayot />}>
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<SignupPage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </StrictMode>,

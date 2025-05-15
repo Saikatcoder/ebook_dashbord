@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const SignupPage = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#EDDCD9] px-4">
@@ -60,10 +62,10 @@ const SignupPage = () => {
           </button>
 
           <p className="text-sm text-center mt-4 text-[#264143]">
-            Dont have an account?{" "}
-            <a href="/login" className="font-bold underline">
-              Login Here!
-            </a>
+            Already have an account?{" "}
+            <Link to="/auth/login" className="font-bold underline">
+              login
+            </Link>
           </p>
         </form>
       </div>
