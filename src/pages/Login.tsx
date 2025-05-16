@@ -1,6 +1,17 @@
-import { Link } from "react-router";
+import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
+  const emailref = useRef<HTMLInputElement>(null)
+  const passwordref = useRef<HTMLInputElement>(null)
+  const handleLoginSubmit = ()=>{
+    const email = emailref.current?.value;
+    const password = passwordref.current?.value;
+    console.log({email,password});
+    
+    // make server call
+
+  }
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#EDDCD9] px-4">
       <div className="w-full max-w-md bg-white border-2 border-[#264143] p-8 rounded-lg shadow-md">
@@ -8,7 +19,7 @@ const LoginPage = () => {
           Login
         </h1>
 
-        <form action="" className="space-y-4">
+        <div  className="space-y-4" >
           <div className="flex flex-col">
             <label
               htmlFor="name"
@@ -17,10 +28,12 @@ const LoginPage = () => {
               Name
             </label>
             <input
+            required
               id="name"
               type="text"
               placeholder="Enter your full name"
               className="outline-none border-2 border-[#264143] shadow-md shadow-[#E99F4C] px-4 py-2 rounded text-sm"
+              ref={emailref}
             />
           </div>
           <div className="flex flex-col">
@@ -31,14 +44,16 @@ const LoginPage = () => {
               Password
             </label>
             <input
+            required
               id="password"
               type="password"
               placeholder="Enter your password"
               className="outline-none border-2 border-[#264143] shadow-md shadow-[#E99F4C] px-4 py-2 rounded text-sm"
+              ref={passwordref}
             />
           </div>
           <button
-            type="submit"
+            onClick={handleLoginSubmit}
             className="w-full bg-[#DE5499] text-white font-bold py-3 mt-4 rounded-lg shadow-md shadow-[#E99F4C] hover:opacity-90 transition"
           >
             Login
@@ -50,7 +65,7 @@ const LoginPage = () => {
               Signup
             </Link>
           </p>
-        </form>
+        </div>
       </div>
     </div>
   );
